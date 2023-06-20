@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MoviesList from './components/MoviesList';
 import './App.css';
 
 function App() {
+  const [movies, setMovies] = useState([])
+
   function fetchMoviesHandler() {
     fetch('https://swapi.dev/api/films').then(response => {
       return response.json();
     }).then(data => {
-      data.results
+      data.results;
     });
   }
 
