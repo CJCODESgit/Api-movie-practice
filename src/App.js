@@ -9,7 +9,10 @@ function App() {
   function fetchMoviesHandler() {
     fetch('https://swapi.dev/api/films').then(response => {
       return response.json();
-    }).then(data => {
+    }).then((data) => {
+      const transformedMovies = data.results.map(movieData => {
+
+      });
       setMovies(data.results);
     });
   }
