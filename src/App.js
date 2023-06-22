@@ -32,8 +32,8 @@ function App() {
       </section>
       <section>
         {!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
-        {!isLoading && movies.length === 0 && <p>Found no movies. click fetch movies</p>}
-        {isLoading && <p>Loading...</p>}
+        {!isLoading && movies.length === 0 && <p>uhm...i think you should click on the button above🤔</p>}
+        {isLoading && <p>oh right.. hang on...</p>}
       </section>
     </React.Fragment>
   );
