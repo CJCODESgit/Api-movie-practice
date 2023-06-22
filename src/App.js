@@ -12,11 +12,12 @@ function App() {
     setisLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://swapi.dev/api/films')
+      //removed 's' after film in the fetch link correct link is https://swapi.dev/api/films just testing errors
+      const response = await fetch('https://swapi.dev/api/film')
       const data = await response.json();
 
       if (!response.ok) {
-
+        throw new Error('hate to break it to you but something went wrong😞');
       }
 
       const transformedMovies = data.results.map(movieData => {
