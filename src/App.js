@@ -13,12 +13,13 @@ function App() {
     setError(null);
     try {
       //removed 's' after film in the fetch link correct link is https://swapi.dev/api/films just testing errors
-      const response = await fetch('https://swapi.dev/api/film')
-      const data = await response.json();
+      const response = await fetch('https://swapi.dev/api/film');
 
       if (!response.ok) {
-        throw new Error('hate to break it to you but something went wrong😞');
+        throw new Error('hate to break it to you but something went wrong 😞...');
       }
+
+      const data = await response.json();
 
       const transformedMovies = data.results.map(movieData => {
         return {
@@ -31,9 +32,9 @@ function App() {
       setMovies(transformedMovies);
       setisLoading(false);
     } catch (error) {
-
+      setError(error.message)
     }
-
+    setisLoading(false);
   };
 
 
@@ -44,8 +45,9 @@ function App() {
       </section>
       <section>
         {!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
-        {!isLoading && movies.length === 0 && <p>uhm...i think you should click on the button above🤔</p>}
+        {!isLoading && movies.length === 0 && !error && <p>uhm...i think you should click on the button above🤔</p>}
         {isLoading && <p>oh right.. hang on...</p>}
+        {!isLoading && error && <p>{error}</p>}
       </section>
     </React.Fragment>
   );
