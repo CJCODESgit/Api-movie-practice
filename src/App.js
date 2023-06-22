@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [movies, setMovies] = useState([])
   const [isLoading, setisLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   async function fetchMoviesHandler() {
     setisLoading(true);
