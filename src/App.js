@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import MoviesList from './components/MoviesList';
 import './App.css';
@@ -8,11 +8,9 @@ function App() {
   const [isLoading, setisLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchMoviesHandler();
-  });
+  // adding useCallback to help us apply the function fetchmovieshandler as a dependency to useEffect
 
-  async function fetchMoviesHandler() {
+  const fetchMoviesHandler = useCallback(async () => {
     setisLoading(true);
     setError(null);
     try {
@@ -39,7 +37,13 @@ function App() {
       setError(error.message)
     }
     setisLoading(false);
-  };
+  }, []);
+
+  // useEffect to make us fetch data automatically without the button
+
+  useEffect(() => {
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]);
 
   let content = <p>uhm...i think you should click on the button above🤔</p>
 
