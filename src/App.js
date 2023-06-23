@@ -39,7 +39,7 @@ function App() {
     setisLoading(false);
   }, []);
 
-  // useEffect to make us fetch data automatically without the button
+  // useEffect to make us fetch data automatically without the button and we can also use button to reload manually.
 
   useEffect(() => {
     fetchMoviesHandler();
