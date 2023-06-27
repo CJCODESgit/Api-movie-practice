@@ -40,7 +40,14 @@ function App() {
   }, [fetchMoviesHandler]);
 
   function addMovieHandler(movie) {
-    console.log(movie);
+    fetch('https://cj-api-project-app-default-rtdb.firebaseio.com/movies.json', {
+      method: 'POST',
+      //convert javascript object to JSON with JSON.stringify() because movie is an object
+      body: JSON.stringify(movie),
+      headers: {
+        'content-Type': 'application/json'
+      }
+    });
   }
 
   let content = <p>foung nothing. maybe click the button again</p>;
