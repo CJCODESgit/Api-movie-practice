@@ -39,8 +39,8 @@ function App() {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
-  function addMovieHandler(movie) {
-    fetch('https://cj-api-project-app-default-rtdb.firebaseio.com/movies.json', {
+  async function addMovieHandler(movie) {
+    const response = await fetch('https://cj-api-project-app-default-rtdb.firebaseio.com/movies.json', {
       method: 'POST',
       //convert javascript object to JSON with JSON.stringify() because movie is an object
       body: JSON.stringify(movie),
@@ -48,6 +48,8 @@ function App() {
         'content-Type': 'application/json'
       }
     });
+    const data = await response.json();
+    console.log(data);
   }
 
   let content = <p>foung nothing. maybe click the button again</p>;
