@@ -15,7 +15,7 @@ function App() {
     try {
       const response = await fetch('https://cj-api-project-app-default-rtdb.firebaseio.com/movies.json');
       if (!response.ok) {
-        throw new Error('Something went wrong!');
+        throw new Error('Something went wrong Boss!');
       }
 
       const data = await response.json();
@@ -43,7 +43,7 @@ function App() {
     console.log(movie);
   }
 
-  let content = <p>Found no movies.</p>;
+  let content = <p>foung nothing. maybe click the button again</p>;
 
   if (movies.length > 0) {
     content = <MoviesList movies={movies} />;
@@ -54,7 +54,7 @@ function App() {
   }
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <p>good stuffs take time..hang on...</p>;
   }
 
   return (
