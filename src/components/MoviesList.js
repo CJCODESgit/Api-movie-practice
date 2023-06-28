@@ -10,8 +10,7 @@ const MovieList = (props) => {
         <Movie
           key={movie.id}
           title={movie.title}
-          releaseDate={movie.releaseDate}
-          openingText={movie.openingText}
+          openingText={movie.openingText} releaseDate={movie.releaseDate}
         />
       ))}
     </ul>
