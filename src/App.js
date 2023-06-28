@@ -63,7 +63,7 @@ function App() {
     console.log(data);
   }
 
-  let content = <p>foung nothing. maybe click the button again</p>;
+  let content = <p>foung nothing. try clicking the button again</p>;
 
   if (movies.length > 0) {
     content = <MoviesList movies={movies} />;
